@@ -1,6 +1,6 @@
 import styles from './ResetPassword.module.css'
 
-import React, { useEffect } from 'react'
+import React from 'react'
 import passVisible from '../../assets/visible.png';
 import passInvisible from '../../assets/invisible.png';
 import toast, { Toaster } from 'react-hot-toast';
@@ -15,7 +15,7 @@ export default function ResetPassword() {
 
     const { username } = useAuthStore(state => state.auth);
     const navigate = useNavigate();
-    const [{ isLoading, apiData, status, serverError }] = useFetch('createResetSession')
+    const [{ isLoading, status, serverError }] = useFetch('createResetSession')
 
     const formik = useFormik({
         initialValues: {
